@@ -1,12 +1,9 @@
-FROM nikolaik/python-nodejs:python3.10-nodejs20
-
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends ffmpeg git zip curl \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
-
-COPY . /app/
-WORKDIR /app/
-RUN pip3 install --no-cache-dir -U -r requirements.txt
-
-CMD bash start
+FROM python:3.12-slim
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
+WORKDIR /app
+COPY requirements.lock .
+RUN pip install --no-cache-dir --require-hashes -r requirements.lock && useradd --create-home bot
+COPY --chown=bot:bot autofilter ./autofilter
+COPY --chown=bot:bot bot.py gen_session.py ./
+USER bot
+CMD ["python", "bot.py"]

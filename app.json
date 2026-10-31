@@ -1,83 +1,30 @@
 {
-    "name": "xBitMuisc",
-    "description": "A Telegram Music Player Bot, written in Python with Pyrogram and Py-Tgcalls.",
-    "logo": "https://imgur.com/a/zdIwpug",
-    "keywords": [
-    "python3",
-    "telegram",
-    "bot",
-    "AnonX",
-    "MusicBot",
-    "telegram-bot",
-    "pyrogram"
-    ],
-    "env": {
-      "API_ID": {
-        "description": "Get this value from https://my.telegram.org",
-        "value": "23898365",
-        "required": true
-      },
-      "API_HASH": {
-        "description": "Get this value from https://my.telegram.org",
-        "value": "40b6a4ca0507e198ec92263eed44ed74",
-        "required": true
-      },
-      "BOT_TOKEN": {
-        "description": "A Bot's token from Botfather",
-        "value": "",
-        "required": true
-      },
-      "MONGO_DB_URI": {
-        "description": "mongo",
-        "value": "",
-        "required": true
-      },
-      "YTPROXY_URL": {
-        "description": "YT Proxy Server Endpoint",
-        "value": "https://tgapi.xbitcode.com",
-        "required": true
-      },
-        "YT_API_KEY": {
-        "description": "YT Proxy API KEY",
-        "value": "",
-        "required": true
-      },
-      "OWNER_ID": {
-        "description": "The user id of user whom you would like to add as OWNER.",
-        "value": "8184094154",
-        "required": true
-      },
-      "STRING_SESSION": {
-        "description": "A Pyrogram v2 String Session from @StringFatherBot on Telegram.",
-        "value": "",
-        "required": true
-      },
-      "HEROKU_API_KEY": {
-        "description": "Your Heroku account's API key",
-        "value": "",
-        "required": false
-      },
-      "HEROKU_APP_NAME": {
-        "description": "Your heroku app name",
-        "value": "",
-        "required": false
-      },
-      "LOGGER_ID": {
-        "description": "Your Log Group ID, add your bot and promote as an admin with full rights!. Channel ki id mat daal dena bsdk.",
-        "value": "-1002885195508",
-        "required": true
-      }
+  "name": "Telegram Auto Filter",
+  "description": "Authorized Telegram file search with PostgreSQL",
+  "env": {
+    "BOT_TOKEN": {
+      "required": true,
+      "description": "BotFather token"
     },
-    "buildpacks": [
-          {
-              "url": "heroku/python"
-          },
-          {
-              "url": "heroku/nodejs"
-          },
-          {
-              "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
-          }
-      ],
-      "stack": "container"
+    "API_ID": {
+      "required": true,
+      "description": "Telegram application ID"
+    },
+    "API_HASH": {
+      "required": true,
+      "description": "Telegram application hash"
+    },
+    "OWNER_IDS": {
+      "required": true,
+      "description": "Comma separated root owner numeric IDs"
+    },
+    "DATABASE_URL": {
+      "required": true,
+      "description": "PostgreSQL URL"
+    },
+    "TELETHON_SESSION_PATH": {
+      "required": true,
+      "description": "Mounted private Telethon session file path"
+    }
+  }
 }

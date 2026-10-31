@@ -9,3 +9,17 @@ downloads/
 __pycache__/
 *.session-journal
 .venv/
+
+.env.*
+!.env.example
+secrets/
+*.session*
+*.sql.gz
+*.dump
+*.bak
+venv/
+.pytest_cache/
+.ruff_cache/
+*.pyc
+.coverage
+htmlcov/
